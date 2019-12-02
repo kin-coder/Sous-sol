@@ -1,0 +1,18 @@
+
+//alert("Kez");
+// ul manana id="comments"
+
+
+let comments = document.getElementById('comments');
+
+let list = document.createElement('LI');
+let bold = document.createElement('B');
+let br = document.createElement('BR');
+
+bold.innerHTML = "<%= @com.client.email %>";
+
+list.innerHTML = "<%= @com.message %>";
+list.append(br);
+list.append(bold);
+comments.append(list);
+

@@ -1,0 +1,21 @@
+<h1>ClientPages#index</h1>
+<p>Find me in app/views/client_pages/index.html.erb</p>
+
+<%= link_to  "Message", new_commentaire_path, class:"btn btn-warning" %>
+<a href="/new_commentaire", class="btn btn-success">Message</a>
+<a href="/new_commentaire"><button  class="btn btn-danger">Message</button></a>
+
+<% @kil.each do |k| %>
+<ul>
+    <li>
+        <%=k.email%><br>
+        <%= link_to  "Delete", delete_client_path(k.id), method: "delete"%>
+    </li>
+
+</ul>
+ 
+
+
+<% end %>
+
+

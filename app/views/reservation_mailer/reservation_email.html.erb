@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+        <h1> Miarahaba, anao. Misaotra noho fahatokisanao anay.</h1>
+        <p>
+            Ny mail anao dia: <%= @prestataire.email %>.<br>
+        </p>
+
+        <p>
+            Araho ity tondro-zotra ity: <%= @url  = 'http://localhost:3000/prestataires/sign_in'%>, raha te-hiditra @ compte-nao ianao.
+        </p>
+
+            <h3>Ireto avy ny commande nataonao:</h3>
+
+                    
+              <%somme = 0%>
+              <%somm = 0%>
+
+            
+              <%  @session_panier.each do |s| %>
+
+        
+                  <li>
+                    
+                    <%=s['name']%> -  <!-- hash io donc: lay clé no alaina -->
+                    <%=s['prix']%> €<!-- hash io  -->
+                  
+                  </li>
+        
+                    <% s1 = s['prix'] %>
+                    <%somm = s1 + somme %>  <!-- <%somme += s['prix'] != nil ? s['prix'] : 0 %>  -->
+              
+              <% end %>
+
+
+                    <p>
+                      Votre Qr: <br/>
+                      <%= @qr %>
+                      
+                    </p>
+
+
+
+
+        
+          
+        <br>
+
+        <p>Total à payer: <b><%= somm%></b> € 
+
+
+
+
+
+        <p>Mankasitraka niditra ho mpikambana, Mirary tontolo andro mahafinaritra ho anao!</p>
+  </body>
+</html>

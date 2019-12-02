@@ -1,0 +1,59 @@
+//alert("<%= @book.price %>")
+
+
+if((typeof data_books === 'undefined' || data_books === null) &&
+ (typeof session_books === 'undefined' || session_books === null)){
+
+    let data_books = []
+
+    let session_books = sessionStorage.getItem("books")
+
+    if(session_books === null) {
+        if(typeof total === 'undefined' || total === null){
+
+            let total = document.getElementById("prix_total")
+            let li = document.createElement('LI')
+            let ul = document.getElementById('list_resevation')
+            li.innerHTML = "<%= @book.name %>"
+
+            ul.append(li)
+
+            data_books.push({
+                name: "<%= @book.name %>",
+                price: "<%= @book.price %>"
+            })
+            sessionStorage.setItem('books', JSON.stringify(data_books))
+
+            total.innerHTML = parseInt(total.innerHTML) + <%= @book.price %>
+            //console.log(parseInt(total.innerHTML) + <%= @book.price %>)
+        }
+    } else {
+        let stored_books = JSON.parse(sessionStorage.getItem('books'))
+        let total = document.getElementById("prix_total")
+        let li = document.createElement('LI')
+        let ul = document.getElementById('list_resevation')
+
+        li.innerHTML = "<%= @book.name %>"
+
+        ul.append(li)
+
+        data_books.push({
+            name: "<%= @book.name %>",
+            price: "<%= @book.price %>"
+        })
+        sessionStorage.setItem('books', JSON.stringify(data_books))
+
+        total.innerHTML = parseInt(total.innerHTML) + <%= @book.price %>
+
+        if(ul.innerHTML === ""){
+
+            for(let i = 0; i < stored_books.length; i++){
+
+            }
+
+        }
+
+    }
+
+}
+

@@ -1,0 +1,19 @@
+
+<h1>Commentaires Clients</h1>
+
+<ul id="comments">
+    <% @commentaires.each do |c| %>
+        <li>
+            <%= c.message %><br>
+            <b><%= c.client.email %></b>
+            <a href="/new_commentaire", class="btn btn-success">Update</a>
+        </li>
+    <% end %>
+</ul>
+
+<%= form_for @commentaire, url: create_commentaire_path, remote: true do |f| %>
+
+<label>Votre Message</label>
+<%=f.text_area :message %>
+<%= f.submit %>
+<% end %>

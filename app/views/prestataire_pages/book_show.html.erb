@@ -1,0 +1,24 @@
+
+
+
+<% @books.each do |book| %>
+
+
+<p><b>Title: </b><br/>
+<%=book.name%></p>
+
+
+<p><b>Description: </b><br/>
+<%=book.description%></p>
+
+<p><b>Price:</b> <%=book.price%> €</p>
+
+<%= link_to  "Prendre", reservation_book_path(book.id), remote: true %><br/>
+
+<% end %>
+
+<ul id="list_resevation">
+
+</ul>
+<p id="prix_total">0</p>
+
