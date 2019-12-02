@@ -32,7 +32,14 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+
+
+
+  # config.action_mailer.raise_delivery_errors = false    # par defaut en developpement
+
+  config.action_mailer.raise_delivery_errors = true   # ne production
+
+
 
   config.action_mailer.perform_caching = false
 
@@ -67,7 +74,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               'example.com',
+    # domain:               'example.com',    # par defaut en developpement 
+    domain:               'heroku.com',    # en production
+
     user_name:            'michael77rakotovao@gmail.com',
     password:             'zzadaorgdtcibfti',
     authentication:       'plain',
